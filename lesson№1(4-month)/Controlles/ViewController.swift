@@ -42,7 +42,6 @@ class ViewController: UIViewController {
 //    }()
     
     
-    
     private let signInToContinue = MakerView.shared.createLabel(text: "Sign in to continue", size: 30, textColor: .gray)
     
     //main half past screen
