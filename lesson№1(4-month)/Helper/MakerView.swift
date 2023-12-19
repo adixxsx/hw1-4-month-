@@ -56,4 +56,41 @@ class MakerView {
         tf.leftViewMode = leftViewMode
         return tf
     }
+    
+    
+    func createView(backgroundColor: UIColor = .white,
+                    cornerRadius: CGFloat = 10
+    
+    ) -> UIView {
+        let view = UIView()
+        view.backgroundColor = backgroundColor
+        view.layer.cornerRadius = cornerRadius
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
+    
+    func createImage(cornerRadius: CGFloat = 10
+                     //someImage: NSObject =
+    
+    ) -> UIImageView {
+        let image = UIImageView()
+        //image.image = someImage
+        image.layer.cornerRadius = cornerRadius
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }
+    
+    func createButton(backgroundColor: UIColor = .black,
+                      cornerRadius: CGFloat = 10,
+                      setTitleBtn: String = ""
+                      
+    
+    ) -> UIButton {
+        let btn = UIButton()
+        //btn.setTitle = setTitleBtn
+        btn.backgroundColor = backgroundColor
+        btn.layer.cornerRadius = cornerRadius
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }
 }

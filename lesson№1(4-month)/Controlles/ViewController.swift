@@ -20,6 +20,13 @@ class ViewController: UIViewController {
         return view
     }()
     
+    private let lastPicture: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "vector 1")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
 //    private let welcomeBack: UILabel = {
 //        let label = UILabel()
 //        label.text = "Welcome Back"
@@ -31,18 +38,18 @@ class ViewController: UIViewController {
     
     private let welcomeBack = MakerView.shared.createLabel(text: "Welcome Back", size: 44, textColor: .white)
     
-//    private let signInToContinue: UILabel = {
-//        let label = UILabel()
-//        label.text = "Sign in to continue"
-//        //label.font = UIFont(name: "Roboto-Regular", size: 40)
-//        label.font = .systemFont(ofSize: 30)
-//        label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
+    private let signInToContinue: UILabel = {
+        let label = UILabel()
+        label.text = "Sign in to continue"
+        //label.font = UIFont(name: "Roboto-Regular", size: 40)
+        label.font = .systemFont(ofSize: 30)
+        label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     
-    private let signInToContinue = MakerView.shared.createLabel(text: "Sign in to continue", size: 30, textColor: .gray)
+//    private let signInToContinue = MakerView.shared.createLabel(text: "Sign in to continue", size: 30, textColor: .gray)
     
     //main half past screen
     private let bgView: UIView = {
@@ -110,7 +117,7 @@ class ViewController: UIViewController {
     private let eyeButton: UIButton = {
         let btn = UIButton()
         btn.tintColor = .gray
-        btn.setImage(UIImage(named: "eye"), for: .normal)
+        btn.setImage(UIImage(named: "Vector"), for: .normal)
         btn.frame = CGRect(x: 0, y: 0, width: 18, height: 13)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -125,29 +132,39 @@ class ViewController: UIViewController {
     
     private let forgotPassword: UIButton = {
         let btn = UIButton()
-        btn.tintColor = UIColor(red: 0.294, green: 0.58, blue: 0.918, alpha: 1)
+//        btn.tintColor = UIColor(red: 0.294, green: 0.58, blue: 0.918, alpha: 1)
         btn.setTitle("Forgot Password?", for: .normal)
-        btn.frame = CGRect(x: 0, y: 0, width: 105, height: 20)
-        //btn.setTitleColor(.blue, for: .normal)
+//        btn.frame = CGRect(x: 0, y: 0, width: 105, height: 20)
+        btn.titleLabel?.font = .systemFont(ofSize: 13, weight: .regular)
+        btn.setTitleColor(.systemBlue, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
     
-    private let rememberMe: UILabel = {
-        let label = UILabel()
-        label.text = "Remember Me"
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        label.frame = CGRect(x: 0, y: 0, width: 121.23, height: 24)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private let rememberMeLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Remember Me"
+        view.font = .systemFont(ofSize: 18, weight: .regular)
+        view.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
+    
+//    private let rememberMeLbl: UILabel = {
+//        let label = UILabel()
+//        label.text = "Remember Me"
+//        label.font = .systemFont(ofSize: 18, weight: .regular)
+//        label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+//        label.frame = CGRect(x: 0, y: 0, width: 121.23, height: 24)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
     
     private let squareCheck: UIButton = {
         let btn = UIButton()
         btn.tintColor = .black
-        btn.setImage(UIImage(named: "square"), for: .normal)
-        btn.frame = CGRect(x: 0, y: 0, width: 19, height: 24)
+        btn.setImage(UIImage(systemName: "square"), for: .normal)
+//        btn.frame = CGRect(x: 0, y: 0, width: 19, height: 24)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -178,6 +195,8 @@ class ViewController: UIViewController {
         btn.tintColor = .blue
         //btn.frame = CGRect(x: 0, y: 0, width: 19, height: 24)
         btn.setTitle("Sign up", for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -208,11 +227,11 @@ class ViewController: UIViewController {
         loginButtoN()
         eyeBtn()
         forgotPasswordBtn()
-        rememberME()
-        squareCH()
+//        rememberMELabelConfigure()
+        squareCHButton()
         dontACC()
         signUP()
-        
+        lastView()
     }
     
     private func configureBGView() {
@@ -233,7 +252,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 40),
             nameLabel.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 24),
-            nameLabel.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: 24),
+            nameLabel.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: -24),
             //nameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
@@ -257,6 +276,18 @@ class ViewController: UIViewController {
             mainPicture.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 10),
             mainPicture.heightAnchor.constraint(equalToConstant: 256),
             mainPicture.widthAnchor.constraint(equalToConstant: 350)
+        ])
+        }
+    
+    private func lastView() {
+        view.addSubview(lastPicture)
+        
+        NSLayoutConstraint.activate([
+            lastPicture.topAnchor.constraint(equalTo: undergroundView.bottomAnchor, constant: 200),
+            lastPicture.leftAnchor.constraint(equalTo: bgView.leftAnchor),
+            lastPicture.rightAnchor.constraint(equalTo: bgView.rightAnchor),
+            lastPicture.heightAnchor.constraint(equalToConstant: 131.84),
+            lastPicture.widthAnchor.constraint(equalToConstant: 374.79)
         ])
         }
     
@@ -290,7 +321,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             undergroundView.topAnchor.constraint(equalTo: nameTF.topAnchor, constant: 35),
             undergroundView.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 16),
-            undergroundView.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: 16),
+            undergroundView.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: -16),
             undergroundView.heightAnchor.constraint(equalToConstant: 1),
             //undergroundView.widthAnchor.constraint(equalToConstant: 315)
         ])
@@ -322,38 +353,39 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             undergroundView2.topAnchor.constraint(equalTo: passwordTF.topAnchor, constant: 35),
             undergroundView2.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 16),
-            undergroundView2.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: 16),
+            undergroundView2.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: -16),
             undergroundView2.heightAnchor.constraint(equalToConstant: 1),
         ])
     }
     
-    private func rememberME() {
-        bgView.addSubview(rememberMe)
-        
-        NSLayoutConstraint.activate([
-            rememberMe.topAnchor.constraint(equalTo: undergroundView2.topAnchor, constant: 32),
-            rememberMe.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 24),
-            //rememberMe.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: 180)
-        ])
-    }
-    
-    private func squareCH() {
+    private func squareCHButton() {
         bgView.addSubview(squareCheck)
         
         NSLayoutConstraint.activate([
-            squareCheck.topAnchor.constraint(equalTo: undergroundView2.topAnchor, constant: 32),
-            //squareCheck.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 24),
+            squareCheck.topAnchor.constraint(equalTo: undergroundView2.bottomAnchor, constant: 32),
+            squareCheck.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
+            squareCheck.heightAnchor.constraint(equalToConstant: 24)
             //squareCheck.trailingAnchor.constraint(equalTo: rememberMe.trailingAnchor, constant: 10)
         ])
     }
+    
+//    private func rememberMELabelConfigure() {
+//        bgView.addSubview(rememberMeLabel)
+//
+//        NSLayoutConstraint.activate([
+//            rememberMeLabel.topAnchor.constraint(equalTo: squareCheck.topAnchor),
+//            rememberMeLabel.leadingAnchor.constraint(equalTo: squareCheck.trailingAnchor, constant: 13)
+//            rememberMeLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -13)
+//        ])
+//    }
     
     private func eyeBtn() {
         bgView.addSubview(eyeButton)
         
         NSLayoutConstraint.activate([
-            eyeButton.topAnchor.constraint(equalTo: passwordLabel.topAnchor, constant: 15),
+            eyeButton.topAnchor.constraint(equalTo: passwordLabel.topAnchor, constant: 25),
             eyeButton.leftAnchor.constraint(equalTo: passwordTF.leftAnchor, constant: 312),
-            eyeButton.rightAnchor.constraint(equalTo: passwordTF.rightAnchor, constant: 30)
+            eyeButton.rightAnchor.constraint(equalTo: passwordTF.rightAnchor, constant: 10)
         ])
     }
     
@@ -361,11 +393,11 @@ class ViewController: UIViewController {
         bgView.addSubview(forgotPassword)
         
         NSLayoutConstraint.activate([
-            forgotPassword.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 547),
-            forgotPassword.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 233),
-            //forgotPassword.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: 30),
-            forgotPassword.widthAnchor.constraint(equalToConstant: 105),
-            forgotPassword.heightAnchor.constraint(equalToConstant: 20)
+            forgotPassword.topAnchor.constraint(equalTo: undergroundView2.bottomAnchor, constant: 3),
+//            forgotPassword.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 233),
+            forgotPassword.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+//            forgotPassword.widthAnchor.constraint(equalToConstant: 105),
+//            forgotPassword.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
@@ -384,9 +416,9 @@ class ViewController: UIViewController {
         bgView.addSubview(signUp)
         
         NSLayoutConstraint.activate([
-            signUp.topAnchor.constraint(equalTo: loginButton.topAnchor, constant: 63),
-            signUp.leadingAnchor.constraint(equalTo: dontAcc.leadingAnchor, constant: 10),
-            signUp.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: 100),
+            signUp.topAnchor.constraint(equalTo: loginButton.topAnchor, constant: 56),
+            //signUp.leadingAnchor.constraint(equalTo: dontAcc.leadingAnchor, constant: 10),
+            signUp.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -140),
         ])
     }
     
@@ -409,7 +441,7 @@ class ViewController: UIViewController {
         guard let name = nameTF.text else { return }
         guard let password = passwordTF.text else { return }
         
-        if (!name.isEmpty || name.count < 8) || (!password.isEmpty || password.count < 8) {
+        if (name.isEmpty || name.count < 8) || (password.isEmpty || password.count < 8) {
             nameTF.layer.borderWidth = 2
             passwordTF.layer.borderWidth = 2
         } else {
