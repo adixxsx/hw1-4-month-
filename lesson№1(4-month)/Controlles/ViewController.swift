@@ -130,25 +130,25 @@ class ViewController: UIViewController {
         return view
     }()
     
-    private let forgotPassword: UIButton = {
+    @objc private let forgotPassword: UIButton = {
         let btn = UIButton()
-//        btn.tintColor = UIColor(red: 0.294, green: 0.58, blue: 0.918, alpha: 1)
         btn.setTitle("Forgot Password?", for: .normal)
-//        btn.frame = CGRect(x: 0, y: 0, width: 105, height: 20)
         btn.titleLabel?.font = .systemFont(ofSize: 13, weight: .regular)
         btn.setTitleColor(.systemBlue, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
     
-    private let rememberMeLabel: UILabel = {
-        let view = UILabel()
-        view.text = "Remember Me"
-        view.font = .systemFont(ofSize: 18, weight: .regular)
-        view.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private let rememberMeLabel = MakerView.shared.createLabel(text: "Remember Me", size: 20, textColor: .black)
+    
+//    private let rememberMeLabel: UILabel = {
+//        let view = UILabel()
+//        view.text = "Remember Me"
+//        view.font = .systemFont(ofSize: 18, weight: .regular)
+//        view.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
     
 //    private let rememberMeLbl: UILabel = {
 //        let label = UILabel()
@@ -164,7 +164,6 @@ class ViewController: UIViewController {
         let btn = UIButton()
         btn.tintColor = .black
         btn.setImage(UIImage(systemName: "square"), for: .normal)
-//        btn.frame = CGRect(x: 0, y: 0, width: 19, height: 24)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -193,7 +192,6 @@ class ViewController: UIViewController {
     private let signUp: UIButton = {
         let btn = UIButton()
         btn.tintColor = .blue
-        //btn.frame = CGRect(x: 0, y: 0, width: 19, height: 24)
         btn.setTitle("Sign up", for: .normal)
         btn.setTitleColor(.systemBlue, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
@@ -213,7 +211,7 @@ class ViewController: UIViewController {
         view.layer.backgroundColor = UIColor(red: 0.017, green: 0.455, blue: 0.579, alpha: 0.69).cgColor
         view.layer.backgroundColor = UIColor(red: 0.29, green: 0.776, blue: 0.914, alpha: 1).cgColor
         
-        //let height = UIScreen.main.bounds.height
+       
         configureBGView()
         configureNameLabel()
         configurName()
@@ -227,11 +225,11 @@ class ViewController: UIViewController {
         loginButtoN()
         eyeBtn()
         forgotPasswordBtn()
-//        rememberMELabelConfigure()
         squareCHButton()
         dontACC()
         signUP()
         lastView()
+        rememberMELabel()
     }
     
     private func configureBGView() {
@@ -253,9 +251,9 @@ class ViewController: UIViewController {
             nameLabel.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 40),
             nameLabel.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 24),
             nameLabel.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: -24),
-            //nameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
+    
     private func configurName() {
         bgView.addSubview(nameTF)
         
@@ -298,8 +296,6 @@ class ViewController: UIViewController {
             welcomeBack.topAnchor.constraint(equalTo: mainPicture.topAnchor, constant: 260),
             welcomeBack.leftAnchor.constraint(equalTo: mainPicture.leftAnchor, constant: 10),
             welcomeBack.rightAnchor.constraint(equalTo: mainPicture.rightAnchor, constant: 10),
-            //welcomeBack.heightAnchor.constraint(equalToConstant: 48),
-            //welcomeBack.widthAnchor.constraint(equalToConstant: 226)
         ])
     }
     
@@ -310,8 +306,6 @@ class ViewController: UIViewController {
             signInToContinue.topAnchor.constraint(equalTo: welcomeBack.bottomAnchor, constant: 4),
             signInToContinue.leftAnchor.constraint(equalTo: welcomeBack.leftAnchor, constant: 10),
             signInToContinue.rightAnchor.constraint(equalTo: welcomeBack.rightAnchor, constant: 10),
-            //signInToContinue.heightAnchor.constraint(equalToConstant: 35),
-            //signInToContinue.widthAnchor.constraint(equalToConstant: 126)
         ])
     }
     
@@ -323,7 +317,6 @@ class ViewController: UIViewController {
             undergroundView.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 16),
             undergroundView.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: -16),
             undergroundView.heightAnchor.constraint(equalToConstant: 1),
-            //undergroundView.widthAnchor.constraint(equalToConstant: 315)
         ])
     }
     
@@ -365,19 +358,20 @@ class ViewController: UIViewController {
             squareCheck.topAnchor.constraint(equalTo: undergroundView2.bottomAnchor, constant: 32),
             squareCheck.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
             squareCheck.heightAnchor.constraint(equalToConstant: 24)
-            //squareCheck.trailingAnchor.constraint(equalTo: rememberMe.trailingAnchor, constant: 10)
         ])
     }
     
-//    private func rememberMELabelConfigure() {
-//        bgView.addSubview(rememberMeLabel)
-//
-//        NSLayoutConstraint.activate([
-//            rememberMeLabel.topAnchor.constraint(equalTo: squareCheck.topAnchor),
-//            rememberMeLabel.leadingAnchor.constraint(equalTo: squareCheck.trailingAnchor, constant: 13)
-//            rememberMeLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -13)
-//        ])
-//    }
+    private func rememberMELabel() {
+            view.addSubview(rememberMeLabel)
+            
+            NSLayoutConstraint.activate([
+                rememberMeLabel.topAnchor.constraint(equalTo: undergroundView2.topAnchor, constant: 32),
+                rememberMeLabel.leftAnchor.constraint(equalTo: squareCheck.leftAnchor, constant: 40),
+                rememberMeLabel.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: 183)
+              
+            ])
+        }
+    
     
     private func eyeBtn() {
         bgView.addSubview(eyeButton)
@@ -394,11 +388,11 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             forgotPassword.topAnchor.constraint(equalTo: undergroundView2.bottomAnchor, constant: 3),
-//            forgotPassword.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 233),
             forgotPassword.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-//            forgotPassword.widthAnchor.constraint(equalToConstant: 105),
-//            forgotPassword.heightAnchor.constraint(equalToConstant: 20)
+
         ])
+        
+        forgotPassword.addTarget(self, action: #selector(forgotPasswordTapped), for: .touchUpInside)
     }
     
     
@@ -420,6 +414,7 @@ class ViewController: UIViewController {
             //signUp.leadingAnchor.constraint(equalTo: dontAcc.leadingAnchor, constant: 10),
             signUp.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -140),
         ])
+        signUp.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
     }
     
     
@@ -451,13 +446,25 @@ class ViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
         
-//        if text.isEmpty || text.count < 8 {
-//            passwordTF.layer.borderWidth = 2
-//        } else {
-//            nameTF.layer.borderWidth = 0
-//            let vc = FinishViewController()
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
     }
     
+    @objc func forgotPasswordTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(thirdPage(), animated: true)
+    }
+    
+    @objc func signUpTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(SecondViewController(), animated: true)
+    }
+    
+//    @objc func passwordBtnTapped(_ sender: UIButton) {
+//            print(sender)
+//            if sender.tag == 10 {
+//                eyeButton = !eyeButton
+//                passwordTF.isSecureTextEntry =
+//            }
+//            else if sender.tag == 11 {
+//                isPasswordConfirmShow = !isPasswordConfirmShow
+//                passwordTF.isSecureTextEntry = isPasswordConfirmShow
+//            }
+//        }
 }

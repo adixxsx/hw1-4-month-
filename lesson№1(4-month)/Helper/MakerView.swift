@@ -69,27 +69,28 @@ class MakerView {
         return view
     }
     
-    func createImage(cornerRadius: CGFloat = 10
-                     //someImage: NSObject =
-    
+    func createImage(
+        cornerRadius: CGFloat = 10,
+        someImage: UIImage
     ) -> UIImageView {
         let image = UIImageView()
-        //image.image = someImage
+        image.image = someImage
         image.layer.cornerRadius = cornerRadius
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }
     
-    func createButton(backgroundColor: UIColor = .black,
-                      cornerRadius: CGFloat = 10,
-                      setTitleBtn: String = ""
-                      
-    
+    func createButton(
+        backgroundColor: UIColor = .black,
+        cornerRadius: CGFloat = 10,
+        setTitleBtn: String = "",
+        frame: CGRect
     ) -> UIButton {
         let btn = UIButton()
-        //btn.setTitle = setTitleBtn
+        btn.setTitle(setTitleBtn, for: .normal)
         btn.backgroundColor = backgroundColor
         btn.layer.cornerRadius = cornerRadius
+        btn.frame = frame
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }

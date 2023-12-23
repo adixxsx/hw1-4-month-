@@ -12,8 +12,9 @@ class FinishViewController: UIViewController {
     
     private let successView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "success")
+        view.image = UIImage(named: "success 1")
         view.layer.cornerRadius = 175
+        view.contentMode = .scaleAspectFill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -43,28 +44,26 @@ class FinishViewController: UIViewController {
     private func setupUI() {
         
         successUIView()
-        successUILabel()
+        //successUILabel()
     }
     
     private func successUIView() {
         view.addSubview(successView)
         
         NSLayoutConstraint.activate([
-            successView.topAnchor.constraint(equalTo: view.topAnchor, constant: 265),
+            successView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
             successView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            successView.heightAnchor.constraint(equalToConstant: 250),
-            successView.widthAnchor.constraint(equalToConstant: 250)
         ])
         }
     
-    private func successUILabel() {
-        view.addSubview(success)
-        
-        NSLayoutConstraint.activate([
-            success.topAnchor.constraint(equalTo: successView.topAnchor, constant: 250),
-            success.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        ])
-        }
+//    private func successUILabel() {
+//        view.addSubview(success)
+//
+//        NSLayoutConstraint.activate([
+//            success.topAnchor.constraint(equalTo: successView.topAnchor, constant: 250),
+//            success.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//        ])
+//        }
     
     
     
