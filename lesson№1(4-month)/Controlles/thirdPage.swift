@@ -37,7 +37,7 @@ class thirdPage: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = "ТЫ УЁБА!!: \(indexPath.row)"
+        cell.textLabel?.text = "YOU COOL!!: \(indexPath.row)"
         cell.detailTextLabel?.text = "AND YOU KNOW IT: \(indexPath.row)"
         cell.imageView?.image = UIImage(systemName: "star")
         cell.backgroundColor = .cyan
@@ -45,6 +45,7 @@ class thirdPage: UIViewController, UITableViewDataSource {
         return cell
     }
 
+    
 }
 
 
