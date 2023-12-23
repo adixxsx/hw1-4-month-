@@ -37,23 +37,40 @@ class MakerView {
     }
     
     func createTextField(text: String = "",
+                         size: CGFloat = 12,
+                         weight: UIFont.Weight = .regular,
                          placeholder: String = "",
                          textColor: UIColor = .black,
                          cornerRadius: CGFloat = 8,
                          borderWidth: CGFloat = 0,
                          borderColor: CGColor = UIColor.red.cgColor,
-                         leftViewMode: UITextField.ViewMode = .always
+                         leftViewMode: UITextField.ViewMode = .always,
+                         backgroundColor: UIColor = .white,
+                         leftView: Bool = false,
+                         rightView: Bool = false
                          
     
     ) -> UITextField {
         let tf = UITextField()
         tf.text = text
+        tf.font = .systemFont(ofSize: size, weight: weight)
         tf.placeholder = placeholder
         tf.textColor = textColor
         tf.layer.cornerRadius = cornerRadius
         tf.layer.borderWidth = borderWidth
         tf.layer.borderColor = borderColor
         tf.leftViewMode = leftViewMode
+        tf.backgroundColor = backgroundColor
+        if leftView == true {
+            let leftUIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            tf.leftView = leftUIView
+            tf.leftViewMode = .always
+        }
+        if rightView == true {
+            let rightUIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            tf.rightView = rightUIView
+            tf.rightViewMode = .always
+        }
         return tf
     }
     
@@ -69,29 +86,48 @@ class MakerView {
         return view
     }
     
+        
     func createImage(
-        cornerRadius: CGFloat = 10,
-        someImage: UIImage
-    ) -> UIImageView {
-        let image = UIImageView()
-        image.image = someImage
-        image.layer.cornerRadius = cornerRadius
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }
+            image: UIImage? = nil,
+            tintColor: UIColor = .black,
+            cornerRadius: CGFloat = 0,
+            masksToBounds: Bool = true
+        ) -> UIImageView {
+            let view = UIImageView()
+            view.image = image
+            view.tintColor = tintColor
+            view.layer.cornerRadius = cornerRadius
+            view.layer.masksToBounds = masksToBounds
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
+        }
+
     
     func createButton(
-        backgroundColor: UIColor = .black,
-        cornerRadius: CGFloat = 10,
-        setTitleBtn: String = "",
-        frame: CGRect
+        text: String = "",
+        textColor: UIColor = .black,
+        fontSize: CGFloat = 12,
+        fontWeight: UIFont.Weight = .regular,
+        tintColor: UIColor = .black,
+        setImage: UIImage? = nil,
+        cornerRadius: CGFloat = 0,
+        borderWidth: CGFloat = 0,
+        borderColor: CGColor = UIColor.red.cgColor,
+        backgroundColor: UIColor = .clear,
+        isEnabled: Bool = true
     ) -> UIButton {
-        let btn = UIButton()
-        btn.setTitle(setTitleBtn, for: .normal)
-        btn.backgroundColor = backgroundColor
-        btn.layer.cornerRadius = cornerRadius
-        btn.frame = frame
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
+        let view = UIButton()
+        view.setTitle(text, for: .normal)
+        view.setTitleColor(textColor, for: .normal)
+        view.titleLabel?.font = .systemFont(ofSize: fontSize, weight: fontWeight)
+        view.tintColor = tintColor
+        view.setImage(setImage, for: .normal)
+        view.layer.cornerRadius = cornerRadius
+        view.layer.borderWidth = borderWidth
+        view.layer.borderColor = borderColor
+        view.backgroundColor = backgroundColor
+        view.isEnabled = isEnabled
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }
 }

@@ -44,7 +44,7 @@ class FinishViewController: UIViewController {
     private func setupUI() {
         
         successUIView()
-        //successUILabel()
+       
     }
     
     private func successUIView() {
@@ -55,15 +55,6 @@ class FinishViewController: UIViewController {
             successView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         }
-    
-//    private func successUILabel() {
-//        view.addSubview(success)
-//
-//        NSLayoutConstraint.activate([
-//            success.topAnchor.constraint(equalTo: successView.topAnchor, constant: 250),
-//            success.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//        ])
-//        }
     
     
     

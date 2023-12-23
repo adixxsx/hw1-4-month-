@@ -18,6 +18,7 @@
 		CE7D89AA2B327710006EAACF /* thirdPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D89A92B327710006EAACF /* thirdPage.swift */; };
 		CE7D89AD2B328206006EAACF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE7D89AC2B328206006EAACF /* SnapKit */; };
 		CE7D89D22B32A037006EAACF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D89D12B32A037006EAACF /* TableViewCell.swift */; };
+		CECAD3CC2B562E1D00571489 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAD3CB2B562E1D00571489 /* CheckViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		CE79F6A62B24174200831836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE7D89A92B327710006EAACF /* thirdPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdPage.swift; sourceTree = "<group>"; };
 		CE7D89D12B32A037006EAACF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		CECAD3CB2B562E1D00571489 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				CE5C70AB2B2943DE005B9B9E /* FinishViewController.swift */,
 				CE5C70AD2B294569005B9B9E /* SecondViewController .swift */,
 				CE7D89A92B327710006EAACF /* thirdPage.swift */,
+				CECAD3CB2B562E1D00571489 /* CheckViewController.swift */,
 			);
 			path = Controlles;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				CE5C70AE2B294569005B9B9E /* SecondViewController .swift in Sources */,
 				CE5C70AC2B2943DE005B9B9E /* FinishViewController.swift in Sources */,
 				CE7D89AA2B327710006EAACF /* thirdPage.swift in Sources */,
+				CECAD3CC2B562E1D00571489 /* CheckViewController.swift in Sources */,
 				CE79F6992B24173F00831836 /* AppDelegate.swift in Sources */,
 				CE79F69B2B24173F00831836 /* SceneDelegate.swift in Sources */,
 			);
@@ -349,6 +353,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,6 +380,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
