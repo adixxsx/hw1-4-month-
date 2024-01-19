@@ -24,6 +24,7 @@ class thirdPage: UIViewController {
     
     private let employeeIdLabel = MakerView.shared.createLabel(text: "Employee Id", size: 12, weight: .medium, textColor: UIColor(red: 0.647, green: 0.647, blue: 0.647, alpha: 1))
     
+    
     private let idTF = MakerView.shared.createTextField(size: 16, weight: .regular, placeholder: "Enter your employee ID", textColor: .black)
     
     private let underline = MakerView.shared.createView(backgroundColor: UIColor(red: 0.647, green: 0.647, blue: 0.647, alpha: 1))
